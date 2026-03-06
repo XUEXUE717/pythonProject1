@@ -11,7 +11,7 @@ print("列表元素个数：",len(list))
 #列表的方法
 list.append('append')
 print(list)
-print(list.count('taobao'))
+print('taobao',list.count('taobao'))
 list.extend(range(0,5))
 print(list)
 

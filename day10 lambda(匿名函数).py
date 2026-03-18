@@ -10,6 +10,7 @@
                         惰性计算，只有循环时才会组个计算元素
                         长度不一致时，多个迭代对象长度不同，以最短的那个为准
                 filter（）同高阶函数，根据指定的过滤条件，从可迭代对象中筛选符合条件元素，返回布尔值
+                      filter(条件，变量)
                 reduce（）高阶函数，持续累积计算，最终返回一个单一结果，
                     需要导入模块，必须接收两个参数，空迭代返回错误提示
 
@@ -29,7 +30,26 @@ print(y(5))
 x = lambda a,b : a + b
 print(x(2,6))
 
-#与内置函数一起使用
+#与内置函数map()一起使用
 numbers = [1,2,3,4,5]
 squared = list(map(lambda x : x**2,numbers))
 print(squared)
+
+#与filter()一起使用，筛选偶数
+numbers = [1,2,3,4,5,6,7,8]
+even_numbers = list(filter(lambda x : x % 2 == 0, numbers))
+print(even_numbers)
+
+#与reduce()演示如何计算一个序列的累积乘积
+
+from functools import  reduce
+numbers = [1,2,3,4,5]
+product = reduce(lambda x,y: x*y ,numbers)
+#reduce()函数通过遍历numbers列表，并使用lambda函数累积的结果不断更新，最终1*2*3*4*5=120
+print(product)
+
+nums = [1,2,3,4,5,6,7,8]
+even = filter(lambda x : x % 2 == 0,nums)
+doubled = map(lambda x : x * 2, even)
+sum = reduce(lambda x , y : x + y ,doubled)
+print(sum)

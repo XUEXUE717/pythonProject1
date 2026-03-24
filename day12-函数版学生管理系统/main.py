@@ -3,9 +3,6 @@ taechers = [['doudou','4']]
 Amessage = { "root":"root","doudou":"doudou"}
 num_num = 1
 
-
-
-
 #增加数据
 def add(now_user):
     global  Amessage,students
@@ -47,21 +44,78 @@ def dele(now_user):
             print("学生信息[学号][姓名]")
             for stud in students:
                 print(stud[0],stud[1])
-            del_stu = int(input("请输入需要删除的学号").strip())
+            del_stu = int(input("请输入需要删除的学号").strip())#根据学号删除，可以设置选项根据姓名，班级，删除
             for num in range(len(students)):
                 if del_stu == students[num][0]:
                     students.remove(students[num])
             print('更新后的学生信息：',students)
+            menu(now_user)
+#更新修改数据
+def up_data(now_user):
+    global Amessage,students
+    match now_user:
+        case '1':
+            print("账号信息：\n")  # 输出账号信息可以归纳与一个查询函数
+            for key in Amessage:
+                print(key)
+            upuser = input("请输入需要修改密码的账号:\n").strip()  # 输入需要修改的账号（具有唯一性），根据账号修改密码
+            while True:
+                if upuser in Amessage.keys():
+                    up_pw1= input("请输入更改的密码:\n")
+                    up_pw2 = input("请再次输入密码：\n")
+                    if up_pw1 != up_pw2:
+                        print("两次密码不一致重新输入！")
+                        continue
+                    else:
+                        Amessage[upuser] = up_pw1
+                        print(f"修改成功{Amessage}")
+                        menu(now_user)
+                else:
+                    print("输入错误！请重新输入\n")
+
+        case '2':
+            while True:
+                upuser = int(input("请输入需要修改信息的学号:\n").strip())  # 输入需要修改的学号（具有唯一性），根据学号修改信息
+                i_num = -1
+                for x in range(len(students)):
+                    if students[i_num][0] == int(upuser):
+                        i_num = x
+                        break
+                if i_num == -1:
+                    print("输入错误 重新输入！\n")
+                    continue
+                print("需要修改数据的学号相关信息：\n",students[i_num])
+                change = input("请选择的需要修改的字段：A姓名，B性别,C班级,D返回菜单栏")#一次性多次修改——后续改进
+                match change:
+                    case 'A':
+                        updata = input("请输入修改的新姓名：\n").strip()#后续还需要添加检测是否输入正确
+                        students[i_num][1] = updata
+                        print(f"更新后的学生信息为：{students[i_num]}")
+                        menu(now_user)
+                    case 'B':
+                        updata = input("请输入修改的新内容（性别：F女 M男）：\n").strip()
+                        students[i_num][2] = updata
+                        print(f"更新后的学生信息为：{students[i_num]}")
+                        menu(now_user)
+                    case 'C':
+                        updata = input("请输入班级：\n").strip()
+                        students[i_num][3] = updata
+                        print(f"更新后的学生信息为：{students[i_num]}")
+                        menu(now_user)
+                    case 'D':
+                        menu(now_user)
 
 
 #菜单栏
 def menu(now_user):
-    input_num = input("A.增加数据\nB.删除数据\nC，更新数据\nD.删除数据\nE.显示全部数据\nF.退出登陆")
+    input_num = input("请选择功能：\nA.增加数据\nB.删除数据\nC，更新数据\nD.删除数据\nE.显示全部数据\nF.退出登陆")
     match input_num:
         case 'A':
             add(now_user)
         case 'B':
             dele(now_user)
+        case 'C':
+            up_data(now_user)
 
 while True :
     num = input("1，管理员  2.教师\n请选择账号登录：\n")

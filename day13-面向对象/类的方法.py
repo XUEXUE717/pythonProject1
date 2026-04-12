@@ -57,3 +57,5 @@ def check_score(self,score):
 #1.实例化对象（创建具体的学生），这里自动触发__init__方法
 student_a = Student("张三",'1001')
 student_b = Student("李四",'1002')
+
+#2.

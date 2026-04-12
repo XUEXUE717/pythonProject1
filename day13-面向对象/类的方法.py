@@ -58,4 +58,5 @@ def check_score(self,score):
 student_a = Student("张三",'1001')
 student_b = Student("李四",'1002')
 
-#2.
+#2.调用stydy方法。这里的student_a就是self
+s

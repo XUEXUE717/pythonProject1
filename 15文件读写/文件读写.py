@@ -23,9 +23,6 @@ print("文件描述为：",fid)
 #关闭文件
 t.close()
 
-
-
-
 with open('test1.txt','r',encoding='utf-8') as f:
     content = f.read()
     #文件自动关闭，无需close()

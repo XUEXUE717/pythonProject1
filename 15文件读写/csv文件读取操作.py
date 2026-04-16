@@ -57,3 +57,8 @@ with open('output_dict.csv','w',encoding='utf-8',newline='') as f:
         {'姓名': '赵六', '年龄': 25, '城市': '上海'},
         {'姓名': '孙七', '年龄': 30, '城市': '广州'}
     ])
+
+
+    '''编码问题：始终加上 encoding='utf-8'，否则中文可能会乱码。
+空行问题：写入时始终加上 newline=''。
+Excel 乱码：如果生成的 CSV 用 Excel 打开中文乱码，可以将编码改为 encoding='utf-8-sig'。'''

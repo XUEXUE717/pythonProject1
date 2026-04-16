@@ -1,0 +1,32 @@
+[
+  {
+    "id": 101,
+    "name": "Alice",
+    "email": "alice@example.com",
+    "reg_time": 1678888888
+  },
+  {
+    "id": 102,
+    "name": "Bob",
+    "email": "bob-at-mail.com",
+    "reg_time": 1678999999
+  },
+  {
+    "id": 103,
+    "name": "Charlie",
+    "email": "charlie@test.org",
+    "reg_time": null
+  },
+  {
+    "id": 104,
+    "name": "David",
+    "email": "david@demo.net",
+    "reg_time": 1679111111
+  },
+  {
+    "id": 105,
+    "name": "Eve",
+    "email": "eve@example.com",
+    "reg_time": 1679222222
+  }
+]

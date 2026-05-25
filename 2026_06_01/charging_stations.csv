@@ -1,0 +1,8 @@
+station_id,user_id,power,charge_type,location
+ST001,USER88,7.5,AC,商圈
+ST002,USER99,60,DC,办公区
+ST003,,3.5,AC,住宅区
+ST004,USER77,,DC,高速服务区
+ST005,USER66,0,AC,停车场
+,USER55,120,DC,充电站
+ST007,USER44,abc,AC,未知

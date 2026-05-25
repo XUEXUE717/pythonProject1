@@ -115,10 +115,21 @@ class Student(Prante):
                     return
     def change(self):
         #信息更新：学生转班、修改年龄或联系方式时，更新对应数据。
-        print('请选择要修改的学生信息\n id  name class age  grade')
-        self.id = input("请输入id\n")
-        self.name = input()
-        
+        """修改学生信息"""
+        student_id = input("请输入要修改的学号: ").strip()
+
+        for stu in self.students:
+            if stu.student_id == student_id:
+                try:
+                    print(f"当前信息: {stu}")
+                    stu.name = input("请输入新姓名: ").strip()
+                    stu.age = int(input("请输入新年龄: "))
+                    stu.score = float(input("请输入新成绩: "))
+                    print("修改成功！")
+                except ValueError:
+                    print("输入错误：年龄和成绩必须是数字！")
+                return
+        print("未找到该学号的学生。")
 
     def del_student(self):
         #删除学生：学生毕业或退学后，将其信息从系统中移除。

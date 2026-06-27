@@ -1,0 +1,50 @@
+这里有几道精心设计的Python编程题目，涵盖了函数传参、JSON数据处理、异常捕获以及文本和CSV文件的读写操作，适合用来巩固基础并提升综合编码能力。
+题目一：用户信息管理系统
+背景：你需要编写一个程序来管理用户信息。程序需要从JSON文件中读取现有数据，允许用户通过命令行输入更新信息（涉及传参），并将更新后的数据写回文件。同时，必须处理可能发生的文件不存在或数据格式错误的异常。
+要求：
+函数传参：编写一个函数 update_user_info(user_id, **kwargs)，接收用户ID和任意数量的关键字参数（如 name="张三", age=25）来更新信息。
+JSON处理：读取名为 users.json 的文件，更新对应ID的用户数据，并将结果写回该文件。
+异常处理：处理文件不存在（FileNotFoundError）以及JSON解码错误（json.JSONDecodeError）的情况，并给出友好的提示。
+文件读写：确保写入时使用UTF-8编码。
+示例数据 (users.json)：
+json
+
+编辑
+
+
+
+[
+    {"id": 1, "name": "Alice", "age": 22},
+    {"id": 2, "name": "Bob", "age": 30}
+]
+题目二：学生成绩统计与CSV处理
+背景：学校提供了一个CSV文件，记录了学生的姓名、科目和成绩。你需要编写脚本来读取这个文件，计算每个学生的平均分（涉及列表/字典传参处理），并将结果输出到新的CSV文件中。
+要求：
+文件读写：读取 scores.csv，该文件包含表头 name,subject,score。
+数据处理与传参：编写一个函数 calculate_averages(data_list)，接收包含所有行数据的列表，返回一个字典，键为学生姓名，值为平均分。
+异常处理：
+捕获文件读取时的IO错误。
+捕获数据转换时的类型错误（例如成绩栏输入了非数字字符 ValueError）。
+结果输出：将计算出的平均分写入 averages.csv，格式为 name,average_score。
+示例数据 (scores.csv)：
+csv
+
+编辑
+
+
+
+name,subject,score
+张三,Math,85
+张三,English,90
+李四,Math,78
+李四,Science,88
+题目三：简单的API模拟与日志记录
+背景：模拟一个简单的API请求过程。程序接收一个用户ID，模拟从“服务器”获取数据（以JSON字符串形式模拟），解析数据，并将其保存到文本日志文件中。
+要求：
+获取JSON：编写一个函数 fetch_data(user_id)，返回一个模拟的JSON字符串（例如 {"status": "success", "data": {"id": 1, "value": "test"}}）。
+传参与解析：编写主函数，接收用户ID，调用上述函数获取JSON字符串，并使用 json.loads() 将其解析为字典。
+文件读写：将解析后的数据（格式化为可读的字符串）追加写入到 api_log.txt 文件中。
+异常处理：
+如果解析JSON失败（例如返回了无效的JSON格式），捕获 json.JSONDecodeError。
+如果写入文件失败，捕获相应的IO异常。
+提示：可以使用 try...except...else...finally 结构来确保日志文件无论成功与否都能正确处理。
